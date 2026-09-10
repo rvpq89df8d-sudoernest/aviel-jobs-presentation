@@ -1,0 +1,91 @@
+{
+  "opencv_frames": [],
+  "ui": {
+    "source": "ffmpeg-extracted frames + screenshot analysis",
+    "privacy": "blur counts, phones, emails; genericize employer and candidate names",
+    "modules": {
+      "light_dashboard": {
+        "dir": "rtl",
+        "theme": "light",
+        "sidebar": "end",
+        "logo": [
+          "Aviel",
+          "Jobs"
+        ],
+        "nav": [
+          "החשבון שלי",
+          "משרות פנויות",
+          "קורות חיים",
+          "עלינו",
+          "צור קשר"
+        ],
+        "metrics": [
+          "משרות פעילות",
+          "המתנה לתגובה",
+          "ייעוץ וידאו",
+          "צפיות"
+        ],
+        "title": "משרות סניפים",
+        "filter": "כל הסניפים",
+        "cta": "פרסם משרה"
+      },
+      "video_consulting": {
+        "he": "כל ראיונות הווידאו",
+        "en": "Business Consulting connecting to the business",
+        "columns": [
+          "מספר",
+          "תאריך",
+          "קטגוריה",
+          "תת-קטגוריה"
+        ]
+      },
+      "dark_crm": {
+        "theme": "dark-metallic",
+        "columns": [
+          "חברות מתאימות",
+          "צ'אט אינטראקטיבי",
+          "פרטי מועמד"
+        ],
+        "chat": "whatsapp-style",
+        "footer": "נבנה ומטופל על ידי TTNT AI"
+      },
+      "admin": {
+        "title_he": "ניהול פלטפורמה",
+        "rows": [
+          "משרות",
+          "חוזים",
+          "מסמכים",
+          "מסמכי תנאים",
+          "מועמדים",
+          "קטגוריות משרות",
+          "חברות",
+          "מיקומים",
+          "שמות משרות",
+          "תשובות לפניות",
+          "פניות למשרות",
+          "פניות לקורות חיים",
+          "תתי-קטגוריות",
+          "משתמשים",
+          "פריסטים לתמונות משרה",
+          "קורות חיים"
+        ],
+        "counts": "blurred"
+      },
+      "global_map": {
+        "title": "AVIEL JOBS GLOBAL RECRUITMENT & STAFFING",
+        "cities": [
+          "New York",
+          "London",
+          "Dubai",
+          "Tokyo",
+          "Singapore",
+          "Sydney"
+        ]
+      }
+    },
+    "live": {
+      "url": "https://avieljobs.co.il",
+      "label_he": "למערכת הלייב"
+    }
+  }
+}

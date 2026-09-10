@@ -1,0 +1,6 @@
+opencv-python
+ffmpeg-python
+ultralytics
+segment-anything
+easyocr
+manim

@@ -17,7 +17,7 @@ import {
   ThinkSlide,
 } from '@/presentation/slides.tsx'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type TouchEvent } from 'react'
 
 const SLIDES = [
   HeroSlide,
@@ -40,6 +40,8 @@ export default function Presentation() {
   const [index, setIndex] = useState(0)
   const [step, setStep] = useState(0)
   const [direction, setDirection] = useState(1)
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+  const [touchEnd, setTouchEnd] = useState<number | null>(null)
   const indexRef = useRef(0)
   const stepRef = useRef(0)
   indexRef.current = index
@@ -125,11 +127,39 @@ export default function Presentation() {
     }
   }, [advance, locale, retreat])
 
+  const onTouchStart = useCallback((event: TouchEvent<HTMLDivElement>) => {
+    setTouchEnd(null)
+    setTouchStart(event.targetTouches[0].clientX)
+  }, [])
+
+  const onTouchEnd = useCallback(
+    (event: TouchEvent<HTMLDivElement>) => {
+      const endX = event.changedTouches[0].clientX
+      setTouchEnd(endX)
+      if (touchStart === null) {
+        return
+      }
+      const delta = (touchEnd ?? endX) - touchStart
+      if (delta > 50) {
+        advance()
+        return
+      }
+      if (delta < -50) {
+        retreat()
+      }
+    },
+    [advance, retreat, touchStart],
+  )
+
   const Slide = SLIDES[index]
   const enterX = (locale === 'he' ? -1 : 1) * direction * 36
 
   return (
-    <div className="relative h-svh min-w-0 overflow-x-hidden overflow-y-hidden bg-void text-ink">
+    <div
+      className="relative h-svh min-w-0 overflow-x-hidden overflow-y-hidden bg-void text-ink"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
       <Chrome
         title={titles[index]}
         index={index}
